@@ -1,0 +1,29 @@
+type Query {
+    getMeals(page: Int, size: Int): [Meal]
+    getMealsByDate(date: String): [Meal]
+}
+
+type Meal {
+    id: ID
+    type: MealType
+    foodItems: [FoodItem!]
+    date: String
+}
+
+enum MealType {
+    BREAKFAST
+    LUNCH
+    DINNER
+    SNACK
+}
+
+type FoodItem {
+    id: ID
+    name: String!
+    groups: [FoodGroup!]
+}
+
+type FoodGroup {
+    Id: ID
+    name: String!
+}
